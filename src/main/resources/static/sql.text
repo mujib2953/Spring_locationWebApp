@@ -1,0 +1,20 @@
+We are using MySql Server and MySql Workbench for development.
+
+Follows the below steps to create database and table structure:
+	1. To Create DataBase use below code
+		create database projectdb;
+	2. Using database for table creation and other operation
+		use projectdb;
+	3. Create location table with below code.
+		create table location_table (
+			id int primary key auto_increment,
+		    code varchar(20),
+		    name varchar(20),
+		    type varchar(20)
+		);
+		
+	4. Display table contents
+		select * from location_table;
+	5. If you want to delete table
+		drop table location_table;
+	
