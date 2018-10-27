@@ -9,11 +9,18 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>All Locations</title>
+		
+		<style type="text/css">
+			th, td {
+				border: 2px solid lightgrey;
+				padding: 5px;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>All Locations</h1>
 		
-		<table>
+		<table style="border: 3px solid #990000; border-collapse: collapse">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -24,7 +31,20 @@
 				</tr>
 			</thead>
 			<tbody>
+				<c:forEach items="${allLocations}" var="location">
+					<tr>
+						<td>${location.id}</td>
+						<td>${location.code}</td>
+						<td>${location.name}</td>
+						<td>${location.type}</td>
+						<td>
+							<a href="#">Edit</a> | <a href="#">Delete</a>
+						</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
+		
+		<a href="createLoc">Add Location</a>
 	</body>
 </html>
