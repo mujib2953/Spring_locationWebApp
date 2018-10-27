@@ -11,13 +11,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mujib.location.entities.Location;
 import com.mujib.location.service.LocationService;
+import com.mujib.location.util.EmailUtil;
 
 @Controller
 public class LocationController {
 
 	@Autowired
 	LocationService locationService;
-
+	
+	@Autowired
+	EmailUtil emailUtility;
+	
 	@RequestMapping("/createLoc")
 	public String craeteLocation() {
 		return "createLocation";
@@ -29,7 +33,10 @@ public class LocationController {
 		Location savedLocation = locationService.saveLocation(location);
 		String msg = "New record saved with Id " + savedLocation.getId();
 		modelMap.addAttribute("msg", msg);
-
+		
+		// --- sending a mail
+		emailUtility.sendEmail("ansarimujiburrehman@gmail.com", "Test Subject", "Test Body.");
+		
 		return "createLocation";
 	}
 
