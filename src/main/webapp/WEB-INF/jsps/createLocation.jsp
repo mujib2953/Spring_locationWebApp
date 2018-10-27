@@ -7,9 +7,8 @@
 		<title>Create Location</title>
 	</head>
 <body>
-	<form method="saveLocation" action="POST">
+	<form method="POST" action="saveLoc">
 		<pre>
-		Id      : <input type="text" name="id" />
 		Code	: <input type="text" name="code" />
 		Name	: <input type="text" name="name" />
 		Type	: <input type="radio" name="type" value="URBANN" /> Urban 
@@ -18,5 +17,6 @@
 		<input type="submit" value="Save Location" />
 		</pre>
 	</form>
+	${msg}
 </body>
 </html>
