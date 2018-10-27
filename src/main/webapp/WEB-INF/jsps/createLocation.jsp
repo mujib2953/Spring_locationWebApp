@@ -9,12 +9,12 @@
 <body>
 	<form method="saveLocation" action="POST">
 		<pre>
-		Id		: <input type="text" name="id" />
+		Id      : <input type="text" name="id" />
 		Code	: <input type="text" name="code" />
 		Name	: <input type="text" name="name" />
-		Rural	: 
-			Urban <input type="radio" name="type" value="URBANN" />
-			Rural <input type="radio" name="type" value="RURAL" />
+		Type	: <input type="radio" name="type" value="URBANN" /> Urban 
+			  <input type="radio" name="type" value="RURAL" /> Rural
+			
 		<input type="submit" value="Save Location" />
 		</pre>
 	</form>
