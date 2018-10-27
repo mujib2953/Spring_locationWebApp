@@ -11,7 +11,7 @@
 		<pre>
 		Code	: <input type="text" name="code" />
 		Name	: <input type="text" name="name" />
-		Type	: <input type="radio" name="type" value="URBANN" /> Urban 
+		Type	: <input type="radio" name="type" value="URBAN" /> Urban 
 			  <input type="radio" name="type" value="RURAL" /> Rural
 			
 		<input type="submit" value="Save Location" />
