@@ -54,4 +54,25 @@ public class LocationController {
 		modelMap.addAttribute("allLocations", allLocationList);
 		return "allLocations";
 	}
+	
+	@RequestMapping("editLoc")
+	public String editLocation(@RequestParam("id") int id, ModelMap modelMap) {
+		
+		Location locationById = locationService.getLocationById(id);
+		
+		modelMap.addAttribute("activeLoc", locationById);
+		
+		return "editLocation";
+	}
+	
+	@RequestMapping("updateLoc")
+	public String updateLocation(@ModelAttribute("location") Location location, ModelMap modelMap ) {
+		
+		locationService.saveLocation(location);
+		
+		List<Location> allLocationList = locationService.getAllLocation();
+		modelMap.addAttribute("allLocations", allLocationList);
+		
+		return "allLocations";
+	}
 }

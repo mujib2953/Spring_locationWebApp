@@ -38,7 +38,7 @@
 						<td>${location.name}</td>
 						<td>${location.type}</td>
 						<td>
-							<a href="#">Edit</a> | <a href="deleteLoc?id=${location.id}">Delete</a>
+							<a href="editLoc?id=${location.id}">Edit</a> | <a href="deleteLoc?id=${location.id}">Delete</a>
 						</td>
 					</tr>
 				</c:forEach>
