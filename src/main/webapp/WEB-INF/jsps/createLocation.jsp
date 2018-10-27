@@ -18,5 +18,6 @@
 		</pre>
 	</form>
 	${msg}
+	<a href="allLoc">View All Locations</a>
 </body>
 </html>
