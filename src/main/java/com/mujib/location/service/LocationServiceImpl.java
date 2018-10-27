@@ -3,10 +3,12 @@ package com.mujib.location.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.mujib.location.entities.Location;
 import com.mujib.location.repos.LocationRepository;
 
+@Service
 public class LocationServiceImpl implements LocationService {
 	
 	@Autowired
