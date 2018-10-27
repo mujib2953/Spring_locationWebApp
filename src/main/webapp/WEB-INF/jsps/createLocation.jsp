@@ -18,6 +18,6 @@
 		</pre>
 	</form>
 	${msg}
-	<a href="allLoc">View All Locations</a>
+	<a href="allLoc">View All Locations</a> | <a href="chartLoc">View Chart/Report</a>
 </body>
 </html>

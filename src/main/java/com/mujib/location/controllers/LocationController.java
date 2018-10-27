@@ -2,6 +2,8 @@ package com.mujib.location.controllers;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mujib.location.entities.Location;
+import com.mujib.location.repos.LocationRepository;
 import com.mujib.location.service.LocationService;
 import com.mujib.location.util.EmailUtil;
+import com.mujib.location.util.ReportUtil;
 
 @Controller
 public class LocationController {
@@ -21,6 +25,15 @@ public class LocationController {
 	
 	@Autowired
 	EmailUtil emailUtility;
+	
+	@Autowired
+	LocationRepository locationRepo;
+	
+	@Autowired
+	ReportUtil reportUtil;
+	
+	@Autowired
+	ServletContext sc;
 	
 	@RequestMapping("/createLoc")
 	public String craeteLocation() {
@@ -35,7 +48,7 @@ public class LocationController {
 		modelMap.addAttribute("msg", msg);
 		
 		// --- sending a mail
-		emailUtility.sendEmail("ansarimujiburrehman@gmail.com", "Test Subject", "Test Body.");
+		// emailUtility.sendEmail("ansarimujiburrehman@gmail.com", "Test Subject", "Test Body.");
 		
 		return "createLocation";
 	}
@@ -81,5 +94,15 @@ public class LocationController {
 		modelMap.addAttribute("allLocations", allLocationList);
 		
 		return "allLocations";
+	}
+	
+	@RequestMapping("chartLoc")
+	public String showChart() {
+		
+		List<Object[]> data = locationRepo.findTypeAndTypeCount();
+		String path = sc.getRealPath("/");
+		reportUtil.generateChart(path, data);
+		
+		return "chart";
 	}
 }
